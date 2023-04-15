@@ -17,6 +17,8 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :name, :password, :password_confirmation, :gender)
+    params.require(:user).permit(:email, :name, :password, :password_confirmation, :gender).tap do |whitelisted|
+      whitelisted[:gender] = params[:user][:gender].to_i
+    end
   end
 end
