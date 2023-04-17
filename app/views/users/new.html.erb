@@ -24,8 +24,8 @@
               <%= f.email_field :email, class: 'form-control' %>
             </div>
             <div class="mb-3">
-              <%= f.label :gender %>
-              <%= f.select :gender, { others: 0, male: 1, female: 2 }, { class: 'form-control' , required: true }  %>
+              <%= f.label :gender, class: 'form-label' %>
+              <%= f.select :gender, User.genders.keys.map {|k| [k, k]}, {}, class: 'form-control' %> 
             </div>
             <div class="mb-3">
               <%= f.label :password %>
