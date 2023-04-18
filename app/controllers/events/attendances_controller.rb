@@ -3,7 +3,7 @@
 class Events::AttendancesController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
-    unless @event.only_woman? && !current_user.female?  
+    unless @event.only_woman? && !current_user.woman?  
       event_attendance = current_user.attend(@event)
       (@event.attendees - [current_user] + [@event.user]).uniq.each do |user|
         NotificationFacade.attended_to_event(event_attendance, user)

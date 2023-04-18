@@ -85,7 +85,7 @@
           <div class="text-center">
             <% if logged_in? %>
               <% if !current_user.owner?(@event) %>
-                <% unless @event.only_woman? && !current_user.female? %> 
+                <% unless @event.only_woman? && !current_user.woman? %> 
                   <% if current_user.attend?(@event) %>
                     <%= link_to 'キャンセルする',
                                 event_attendance_url(@event),
